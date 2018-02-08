@@ -1,0 +1,24 @@
+{
+  "name": "koa-app",
+  "version": "1.0.0",
+  "description": "Application with koajs, folowing https://www.udemy.com/learning-koajs-by-building-rest-apis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nenodias/koa-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nenodias/koa-app/issues"
+  },
+  "homepage": "https://github.com/nenodias/koa-app#readme",
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-router": "^7.4.0"
+  }
+}
