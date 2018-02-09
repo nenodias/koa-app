@@ -27,15 +27,15 @@ let posts = [
 ];
 
 
-router.get('/', (ctx, next) => {
+router.get('/', async(ctx, next) => {
 	ctx.body = "Hello world";
 });
 
-router.get('/posts', (ctx, next) => {
+router.get('/posts', async(ctx, next) => {
 	ctx.body = posts;
 });
 
-router.post('/posts', (ctx, next) => {
+router.post('/posts', async(ctx, next) => {
 	let {id, name, content} = ctx.request.body;
 	if(!id){
 		ctx.throw(400, 'id is required field');
