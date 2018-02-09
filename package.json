@@ -19,6 +19,7 @@
   "homepage": "https://github.com/nenodias/koa-app#readme",
   "dependencies": {
     "koa": "^2.4.1",
+    "koa-parser": "^1.0.3",
     "koa-router": "^7.4.0"
   }
 }
