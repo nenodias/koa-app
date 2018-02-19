@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        Company.hasMany(models.Job);
+        Company.belongsTo(models.User);
       }
     }
   });
