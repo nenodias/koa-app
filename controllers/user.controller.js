@@ -1,5 +1,5 @@
 module.exports = {
-  async login(ctx) {
+  async signup(ctx) {
     try {
       let { email, password } = ctx.request.body;
       if (!email) {

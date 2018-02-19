@@ -18,6 +18,6 @@ router.get('/jobs', JobController.find);
 
 router.post('/applications', ApplicationController.create);
 
-router.post('/singup', UserController.create);
+router.post('/signup', UserController.signup);
 
 module.exports = router;
