@@ -1,10 +1,12 @@
 module.exports = {
     async create(ctx){
         try{
+            let UserId = ctx.state.user.id;
             ctx.body = await ctx.db.Company.create({
                 name: ctx.request.body.name,
                 city: ctx.request.body.city,
-                address: ctx.request.body.address
+                address: ctx.request.body.address,
+                UserId: UserId
             });
         }catch(err){
             ctx.throw(500, err);
@@ -12,7 +14,15 @@ module.exports = {
     },
     async find(ctx){
         try{
-            ctx.body = await ctx.db.Company.findAll();
+            let UserId = ctx.state.user.id;
+            ctx.body = await ctx.db.Company.findAll({
+                UserId:UserId,
+                include:[
+                    {
+                        model:ctx.db.Job
+                    }
+                ]
+            });
         }catch(err){
             ctx.throw(500, err);
         }

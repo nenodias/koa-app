@@ -9,7 +9,8 @@ const router = require('./routes');
 const app = new Koa();
 const db = require('./models');
 //db.sequelize.sync({ force:true }) //Recreate the tables
-db.sequelize.sync()
+//db.sequelize.sync() //Create on first time tables
+db.sequelize.authenticate()
     .then(() => console.log('Models sychronized!'))
     .catch((err) => console.error(err));
 

@@ -4,14 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     email: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        Candidate.belongsToMany(models.Job, {
-          through: 'Application'
-        });
-      }
-    }
   });
+  Candidate.associate = models => {
+    Candidate.belongsToMany(models.Job, {
+      through: 'Application'
+    });
+  };
   return Candidate;
 };

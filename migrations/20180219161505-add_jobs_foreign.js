@@ -10,7 +10,7 @@ module.exports = {
         type: "FOREIGN KEY",
         references: {
           name: "fk_Jobs_Company",
-          table: "companies",
+          table: "Companies",
           field: "id",
         }
       })

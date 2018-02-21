@@ -10,8 +10,11 @@
     "secret": "secret"
   },
   "production": {
-    "storage": "prod.sqlite",
-    "dialect": "sqlite",
-    "secret": "secret"
+    "username": "postgres",
+    "password": "postgres",
+    "database": "koa",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "secret" : "secret"
   }
 }
