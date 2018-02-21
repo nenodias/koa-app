@@ -7,17 +7,20 @@ const {
     UserController
 } = require('../controllers');
 
-router.post('/companies', CompanyController.create);
-router.get('/companies', CompanyController.find);
-router.get('/companies/:id', CompanyController.findOne);
-router.delete('/companies/:id', CompanyController.destroy);
-router.put('/companies/:id', CompanyController.update);
+const isAuthenticated = require('../polices/isAutthenticated');
 
-router.post('/jobs', JobController.create);
-router.get('/jobs', JobController.find);
+router.post('/companies', isAuthenticated, CompanyController.create);
+router.get('/companies', isAuthenticated, CompanyController.find);
+router.get('/companies/:id', isAuthenticated, CompanyController.findOne);
+router.delete('/companies/:id', isAuthenticated, CompanyController.destroy);
+router.put('/companies/:id', isAuthenticated, CompanyController.update);
+
+router.post('/jobs', isAuthenticated, JobController.create);
+router.get('/jobs', isAuthenticated, JobController.find);
 
 router.post('/applications', ApplicationController.create);
 
 router.post('/signup', UserController.signup);
+router.post('/login', UserController.login);
 
 module.exports = router;

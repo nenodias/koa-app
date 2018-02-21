@@ -36,9 +36,9 @@ module.exports = {
       if (!password) {
         ctx.throw(400, "please provide password");
       }
-      const user = ctx.db.User.findOne({
+      const user = await ctx.db.User.findOne({
         where: {
-          email
+          email:email
         }
       });
       const matched = UtilService.comparePassword(password, user.password);
