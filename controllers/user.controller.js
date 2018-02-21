@@ -1,3 +1,5 @@
+const UtilService = require('../services/util.service');
+
 module.exports = {
   async signup(ctx) {
     try {
@@ -8,11 +10,12 @@ module.exports = {
       if (!password) {
         ctx.throw(400, "please provide password");
       }
-
-      ctx.body = ctx.db.User.create({
-        email,
-        password
+      const encriptedPassword = await UtilService.hashPassword(password);
+      let user = ctx.db.User.create({
+        email:email,
+        password:encriptedPassword
       });
+      ctx.body = 'Signup successful';
     } catch (err) {
       ctx.throw(500, err);
     }

@@ -11,7 +11,7 @@ module.exports = {
         references: {
           name: "fk_Jobs_Company",
           table: "companies",
-          field: "id"
+          field: "id",
         }
       })
     ]);
