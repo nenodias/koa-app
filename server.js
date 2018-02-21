@@ -10,10 +10,10 @@ const app = new Koa();
 const db = require('./models');
 //db.sequelize.sync({ force:true }) //Recreate the tables
 db.sequelize.sync()
-.then(() => console.log('Models sychronized!'))
-.catch((err) => console.error(err));
+    .then(() => console.log('Models sychronized!'))
+    .catch((err) => console.error(err));
 
-router.get('/', async(ctx, next) => {
+router.get('/', async (ctx, next) => {
     ctx.body = "Hello";
 });
 

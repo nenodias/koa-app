@@ -1,14 +1,17 @@
 {
   "development": {
     "storage": "dev.sqlite",
-    "dialect": "sqlite"
+    "dialect": "sqlite",
+    "secret": "secret"
   },
   "test": {
     "storage": "test.sqlite",
-    "dialect": "sqlite"
+    "dialect": "sqlite",
+    "secret": "secret"
   },
   "production": {
     "storage": "prod.sqlite",
-    "dialect": "sqlite"
+    "dialect": "sqlite",
+    "secret": "secret"
   }
 }
