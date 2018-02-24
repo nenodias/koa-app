@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "debug": "nodemon server.js --inspect",
     "dev": "nodemon server.js",
-    "prod": "node server.js"
+    "prod": "node server.js",
+    "doc": "apidoc -i ./controllers -o ./public"
   },
   "repository": {
     "type": "git",

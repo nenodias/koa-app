@@ -2,6 +2,12 @@ const UtilService = require('../services/util.service');
 const JwtService = require('../services/jwt.service');
 
 module.exports = {
+  /** 
+   * @api {POST} /signup Cadastre-se
+   * @apiGroup Users
+   * @apiName SignupUser 
+   * @apiParam {String} [email] Email must be provided
+  */
   async signup(ctx) {
     try {
       let {
