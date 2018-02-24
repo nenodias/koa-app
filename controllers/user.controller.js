@@ -3,10 +3,25 @@ const JwtService = require('../services/jwt.service');
 
 module.exports = {
   /** 
-   * @api {POST} /signup Cadastre-se
+   * @api {POST} /signup Signup
    * @apiGroup Users
    * @apiName SignupUser 
    * @apiParam {String} [email] Email must be provided
+   * @apiParam {String} [password] Password must be provided
+   * @apiParamExample {String} Request Example:
+   * {
+   *  "email":"test@email.com",
+   *  "password":"pasword123"
+   * }
+   * @apiSuccess {String} Signup succeful
+   * @apiSuccessExample {json} Signup-Success-Response :
+   * HTTP/1.1 200OK
+   * {
+   *  "message":"Signup succeful"
+   * }
+   * @apiExample {curl} Example usage:
+   *  curl -H "Content-Type: application/json" -X POST -d '{"email":"test@email.com","password":"password123"}' http://localhost:4000/signup
+   * @apiDescription User can create sign
   */
   async signup(ctx) {
     try {
