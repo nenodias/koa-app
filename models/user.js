@@ -11,8 +11,5 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   });
-  User.associate = function(models) {
-    // associations can be defined here
-  };
   return User;
 };
