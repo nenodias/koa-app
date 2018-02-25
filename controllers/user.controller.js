@@ -45,6 +45,26 @@ module.exports = {
       ctx.throw(500, err);
     }
   },
+  /** 
+   * @api {POST} /login Login
+   * @apiGroup Users
+   * @apiName loginUser 
+   * @apiParam {String} [email] Email must be provided
+   * @apiParam {String} [password] Password must be provided
+   * @apiParamExample {String} Request Example:
+   * {
+   *  "email":"test@email.com",
+   *  "password":"pasword123"
+   * }
+   * @apiSuccess {Object} A Json web token
+   * @apiSuccessExample {json} Login-Success-Response :
+   * {
+   *  "token":"akofiwehdjsnvbasdopawp21312wklsjlcxz"
+   * }
+   * @apiExample {curl} Example usage:
+   *  curl -H "Content-Type: application/json" -X POST -d '{"email":"test@email.com","password":"password123"}' http://localhost:4000/login
+   * @apiDescription User can login into the system
+  */
   async login(ctx) {
     try {
       let {
