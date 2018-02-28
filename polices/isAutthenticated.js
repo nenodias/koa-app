@@ -1,8 +1,7 @@
 const JwtService = require('../services/jwt.service');
 
 module.exports = async (ctx, next) => {
-    let token = ';'
-    debugger;
+    let token = '';
     if (ctx.req.headers && ctx.req.headers.authorization) {
         token = ctx.req.headers['authorization'];
     } else {
