@@ -77,11 +77,17 @@ module.exports = {
       if (!password) {
         ctx.throw(400, "please provide password");
       }
+      const Op = ctx.db.Sequelize.Op;
       const user = await ctx.db.User.findOne({
         where: {
-          email:email
+          email:{
+            [Op.eq]:email
+          }
         }
       });
+      if(user === null){
+        ctx.throw(500, 'invalid password');
+      }
       const matched = UtilService.comparePassword(password, user.password);
       if (matched) {
 

@@ -2,12 +2,14 @@
   "development": {
     "storage": "dev.sqlite",
     "dialect": "sqlite",
-    "secret": "secret"
+    "secret": "secret",
+    "operatorsAliases": false
   },
   "test": {
     "storage": "test.sqlite",
     "dialect": "sqlite",
-    "secret": "secret"
+    "secret": "secret",
+    "operatorsAliases": false
   },
   "production": {
     "username": "postgres",
@@ -15,6 +17,7 @@
     "database": "koa",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "secret" : "secret"
+    "secret" : "secret",
+    "operatorsAliases": false
   }
 }

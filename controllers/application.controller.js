@@ -40,10 +40,13 @@ module.exports = {
     async create(ctx){
         try{
             let candidate = null;
+            const Op = ctx.db.Sequelize.Op;
             if(ctx.request.body.id){
                 candidate = await ctx.db.Candidate.findOne({
                    where:{
-                       id:ctx.request.body.id
+                       id:{
+                           [Op.eq]:ctx.request.body.id
+                       }
                    } 
                 });
             }else{

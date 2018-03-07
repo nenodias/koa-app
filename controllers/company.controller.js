@@ -82,8 +82,13 @@ module.exports = {
     async find(ctx){
         try{
             let UserId = ctx.state.user.id;
+            const Op = ctx.db.Sequelize.Op;
             ctx.body = await ctx.db.Company.findAll({
-                UserId:UserId,
+                where:{
+                    UserId:{
+                        [Op.eq]:UserId
+                    },
+                },
                 include:[
                     {
                         model:ctx.db.Job
@@ -129,7 +134,14 @@ module.exports = {
   */
     async findOne(ctx){
         try{
-            const company = await ctx.db.Company.findOne({where: {id: ctx.params.id} });
+            const Op = ctx.db.Sequelize.Op;
+            const company = await ctx.db.Company.findOne({
+                where: {
+                    id: {
+                        [Op.eq]:ctx.params.id
+                    }
+                } 
+            });
             if(!company){
                 ctx.throw(404, 'company id is invalid');
             }
@@ -156,7 +168,14 @@ module.exports = {
   */
     async destroy(ctx){
         try{
-            const results = await ctx.db.Company.destroy({where: {id: ctx.params.id} });
+            const Op = ctx.db.Sequelize.Op;
+            const results = await ctx.db.Company.destroy({
+                where: {
+                    id: {
+                        [Op.eq]:ctx.params.id
+                    }
+                } 
+            });
             results === 0 ? ctx.throw(500, 'invalid id provided') : ctx.body = `company is deleted with id ${ctx.params.id}`;
         }catch(err){
             ctx.throw(500, err);
@@ -199,9 +218,14 @@ module.exports = {
             if(ctx.request.body.address){
                 data["address"] = ctx.request.body.address;
             }
+            const Op = ctx.db.Sequelize.Op;
             const results = await ctx.db.Company.update(data,
                 {
-                    where: {id: ctx.params.id} 
+                    where: {
+                        id: {
+                            [Op.eq]:ctx.params.id
+                        }
+                    } 
                 }
             );
             results === 0 ? ctx.throw(500, 'invalid id provided') : ctx.body = `company is update with id ${ctx.params.id}`;
